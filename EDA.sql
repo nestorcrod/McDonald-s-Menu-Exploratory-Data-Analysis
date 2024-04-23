@@ -95,3 +95,15 @@ FROM [McDonald's Menu Nutrition Facts].[dbo].[menu$]
 ) A
 ) B
 WHERE Y = 1
+
+
+/* Calorie Count Variance by Category with subqueries*/
+
+SELECT Category, Variance = AVG(POWER(Calories - Mean_Category, 2))
+FROM
+(
+SELECT Category, Calories,
+       Mean_Category = AVG(Calories)OVER(PARTITION BY Category)			
+FROM [McDonald's Menu Nutrition Facts].[dbo].[menu$]
+) A
+GROUP BY Category
