@@ -27,7 +27,7 @@ SELECT Calories, Category, Item
 FROM
 (
 SELECT Calories, Category, Item,
-   	    Ranking = rank()OVER(PARTITION BY Category ORDER BY Calories DESC)    
+       Ranking = rank()OVER(PARTITION BY Category ORDER BY Calories DESC)    
 FROM [McDonald's Menu Nutrition Facts].[dbo].[menu$]
 ) A
 WHERE Ranking = 1
@@ -39,7 +39,7 @@ SELECT Calories, Category, Item
 FROM
 (
 SELECT Calories, Category, Item,
-  	 	Ranking = rank()OVER(PARTITION BY Category ORDER BY Calories)    
+       Ranking = rank()OVER(PARTITION BY Category ORDER BY Calories)    
 FROM [McDonald's Menu Nutrition Facts].[dbo].[menu$]
 ) A
 WHERE Ranking = 1
@@ -48,12 +48,11 @@ WHERE Ranking = 1
 /* Average Calorie counts by Category */
 
 SELECT DISTINCT Category,
-   	Average_Calorie_Count_By_Category = AVG(Calories)OVER(PARTITION BY Category)
-
+   	        Average_Calorie_Count_By_Category = AVG(Calories)OVER(PARTITION BY Category)
 FROM [McDonald's Menu Nutrition Facts].[dbo].[menu$]
 
 
-/* Median Calorie Item by Category with CTE’s */
+/* Median Calorie Item by Category with CTEâ€™s */
 
 WITH OrderedData AS
 (
@@ -74,7 +73,7 @@ WITH OrderedData AS
 	SELECT Category, Item, Calories,
        	ROW_NUMBER() OVER (PARTITION BY Category ORDER BY Calories) AS RowNum,
        	COUNT(*) OVER (PARTITION BY Category) AS Total_Items,
-   		Average_Calorie_Count_By_Category = AVG(Calories)OVER(PARTITION BY Category)
+   	Average_Calorie_Count_By_Category = AVG(Calories)OVER(PARTITION BY Category)
 	FROM [McDonald's Menu Nutrition Facts].[dbo].[menu$]
 )
 SELECT Category, Average_Calorie_Count_By_Category,Calories AS Median_Calories_by_Category
@@ -92,7 +91,7 @@ FROM
 (
 SELECT Category, Item, Calories, X = Count(*)OVER(PARTITION BY Category, Calories) --number of times a calorie number repeats  
   	 
-FROM [dbo].[menu$]
+FROM [McDonald's Menu Nutrition Facts].[dbo].[menu$]
 ) A
 ) B
 WHERE Y = 1
