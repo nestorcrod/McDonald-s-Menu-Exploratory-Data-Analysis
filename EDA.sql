@@ -97,8 +97,11 @@ FROM [McDonald's Menu Nutrition Facts].[dbo].[menu$]
 WHERE Y = 1
 
 
-/* Calorie Count Variance by Category with subqueries*/
+/* Calorie Count Variance & Standard Deviation by Category with subqueries*/
 
+SELECT Category, Variance, Standard_Deviation = SQRT(Variance)
+FROM
+(
 SELECT Category, Variance = AVG(POWER(Calories - Mean_Category, 2))
 FROM
 (
@@ -107,3 +110,4 @@ SELECT Category, Calories,
 FROM [McDonald's Menu Nutrition Facts].[dbo].[menu$]
 ) A
 GROUP BY Category
+)B
