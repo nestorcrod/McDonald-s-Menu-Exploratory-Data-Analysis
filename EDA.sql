@@ -45,7 +45,7 @@ FROM [McDonald's Menu Nutrition Facts].[dbo].[menu$]
 WHERE Ranking = 1
 
 
-/* Average Calorie counts by Category */
+/* Average Calorie counts by Category */	/* Tableau Visualization named "Average calorie count by food category - Tableau Viz.png" takes the data from this querie */ 
 
 SELECT DISTINCT Category,
    	        Average_Calorie_Count_By_Category = AVG(Calories)OVER(PARTITION BY Category)
