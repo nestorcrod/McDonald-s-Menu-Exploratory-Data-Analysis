@@ -50,6 +50,7 @@ WHERE Ranking = 1
 SELECT DISTINCT Category,
    	        Average_Calorie_Count_By_Category = AVG(Calories)OVER(PARTITION BY Category)
 FROM [McDonald's Menu Nutrition Facts].[dbo].[menu$]
+ORDER BY Average_Calorie_Count_By_Category
 
 
 /* Median Calorie Item by Category with CTE’s */
