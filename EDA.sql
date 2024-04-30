@@ -116,3 +116,9 @@ FROM [McDonald's Menu Nutrition Facts].[dbo].[menu$]
 ) A
 GROUP BY Category
 )B
+
+
+/* Calories, Total Fat, and Cholesterol in the Beef & Pork category */	/* Tableau Visualization named "Calories-Total Fat-Cholesterol (Beef&Pork) Scatter Plot.png" takes the data from this querie */ 
+SELECT Calories, [Total Fat], Cholesterol
+FROM [McDonald's Menu Nutrition Facts].DBO.MENU$
+WHERE Category = 'Beef & Pork'
