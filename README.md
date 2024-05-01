@@ -1,4 +1,6 @@
-McDonald's Menu EDA Data Analysis
+The purpose of this repository is to effectively demonstrate my proficiency in SQL (Structured Query Language) within practical or professional contexts. It encompasses writing queries to retrieve, manipulate, and analyze data from databases. Additionally, it involves creating visualizations using Tableau Public to present insights derived from the analyzed data.
+
+McDonald's Menu Exploratory Data Analysis
 
 Overview:
 
