@@ -71,5 +71,7 @@ Visualization: Creating histograms, bar plots, and scatter plots to understand t
 Tools Used:
 
 SQL, CTE’s, subqueries.
+
 Microsoft SQL Server Management Studio 19
+
 Tableau Public
